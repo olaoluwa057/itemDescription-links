@@ -1,0 +1,160 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="head">
+        <title>Item Description</title>
+        <style>
+            input[type=text], textarea { width: 100%;}
+        </style>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./link.csss">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.9/web3.min.js"></script>
+        <script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/category-chooser.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+
+
+    <body >
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Items Description</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Links</a>
+               
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <!--start-->
+                <div class="container shadow bg-white rounded">
+                    <h1 id="title" class="display-4 ">Item Description</h1>
+                    <div id="body">
+                        <form id="form" onkeypress="return event.keyCode != 13;">
+                            <p> <span class="text-primary">Language: </span> <input type="text" id="locale" name="locale" value="en"
+                                    required="required" class="no-outline boxStyling" /></p>
+                            <p><span class="text-primary">Title: </span> <input type="text" id="title" name="title" required="required"
+                                    class="no-outline boxStyling" /></p>
+                            <p> <span class="text-primary">Short (meta) description: </span> <textarea id="shortDescription"
+                                    name="shortDescription" class="shortDes no-outline boxStyling"
+                                    placeholder="Not more than 500 characters" maxlength="500"></textarea></p>
+                            <p> <span class="text-primary ">Description: </span> <textarea id="description" name="description"
+                                    class="no-outline boxStyling description" placeholder="Not more than 1000 characters"
+                                    maxlength="1000"></textarea></p>
+                            <p><span class="text-primary">License: </span> <textarea id="license" name="license"
+                                    class="no-outline boxStyling"></textarea></p>
+                            <p><span class="text-primary">Minimal prices:</span></p>
+                            <p>in ETH: <input type="text" id="priceETH" name="priceETH" required="required" class="no-outline" />
+                                <label class="font-italic"><input type="checkbox" id="sellInETH" onclick="sellInETHToggle(event)" />
+                                    Don't sell in ETH</label></p>
+                            <p>in AR: <input type="text" id="priceAR" name="priceAR" required="required" class="no-outline" />
+                                <label class="font-italic"><input type="checkbox" id="sellInAR" onclick="sellInARToggle(event)" /> Don't
+                                    sell in AR</label></p>
+                            <div id="multiVoterDiv">
+                                <h2 class="">Categories</h2>
+                                <div id="multiVoter"></div>
+                
+                                <div>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" placeholder="Start typeing (case Sensitive)">
+                                            </div>
+                                            <span class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                <label class="form-check-label " for="inlineCheckbox2"><span class="lead">My| Vote
+                                                        amount in ETH:</span></label>
+                                            </span>
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <button type="button" class="btn btn-outline-dark btn-lg">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <button type="button" value="Add" class="valid btn btn-secondary btn-lg mt-4"
+                                    aria-invalid="false">Add</button>
+                
+                            </div>
+                
+                            <p class="text-center pb-3">
+                                <button type="button" value="submit" onclick="createOrUpdateItem()" role="button" aria-pressed="true"
+                                    class="btn btn-primary btn-lg active mt-3">Submit</button>
+                            </p>
+                
+                        </form>
+                        <p id="uploadLink" style="display: none;"><a href="">Upload file</a></p>
+                    </div>
+                </div>
+                <!--end-->
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <!--start-->
+                
+                <div id="body" class="container shadow rounded">
+                    <h1 id="title" class="display-4">Post Link or Message</h1>
+                    <form id="form" onkeypress="return event.keyCode != 13;">
+                        <p class="text-primary">Language: <input type="text" id="locale" name="locale" required="required" value="en" class="no-outline boxStyling" /></p>
+                        <p class="text-primary">Title: <input type="text" id="title" name="title" required="required" class="no-outline boxStyling" /></p>
+                        <p class="text-primary">Short (meta) description: <textarea id="shortDescription" name="shortDescription" class="no-outline boxStyling"></textarea></p>
+                        <p class="text-primary">Description: <textarea id="description" name="description" class="no-outline boxStyling"></textarea></p>
+                        <p class="text-primary">Link type:
+                            <label><input type="radio" name="kind" value="0" required="true" /> Directory entry</label>
+                            <label><input type="radio" name="kind" value="1" required="true" /> Message</label></p>
+                        <div id="tabs">
+                            <ul class="link-blog">
+                                <li><a href="#tabs-link">Link</a></li>
+                                <li><a href="#tabs-blog">Blog post</a></li>
+                            </ul>
+                            <div id="tabs-link">
+                                <p class="text-primary">Link: <input type="url" id="link" name="link" /></p>
+                            </div>
+                            <div id="tabs-blog">
+                                <p class="text-primary">Template:
+                                    <select id="template" name="template">
+                                        <option value="" > (none)</option>
+                                    </select>
+                                    <a target="_blank" href="templates.html">Manage</a>
+                                </p>
+                                <textarea id="blogPost" name="blogPost" class="no-outline boxStyling"></textarea>
+                                <p id="wallet-info" class="tabs-black">AR wallet key file to pay for upload:
+                                    <input type="file" id="arWalletKeyFile" name="arWalletKeyFile" /></p>
+                                <p style="font-size: smaller" class="tabs-black font-italic">For security reasons you are recommended to use another
+                                    Arweave account than
+                                    the account to which you receive profit or store significant funds.</p>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="multiVoterDiv">
+                        <h2>Categories</h2>
+                        <div id="multiVoter"></div>
+                    </div>
+                    <div class="text-center pb-3">
+                    <p><input id="form-submit" type="button" value="submit" onclick="createOrUpdateItem()" class="btn-primary btn-lg active mt-3" /></p>
+                    </div>
+                </div>
+                <!--end-->
+            </div>
+           
+        </div>
+
+       
+        
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    </body>
+</html>
