@@ -27,6 +27,8 @@
                     aria-controls="nav-home" aria-selected="true">Items Description</a>
                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
                     aria-controls="nav-profile" aria-selected="false">Links</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">Create/Edit Category</a>
                
             </div>
         </nav>
@@ -96,9 +98,10 @@
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <!--start-->
-                
-                <div id="body" class="container shadow rounded">
+                <div class="container shadow rounded">
                     <h1 id="title" class="display-4">Post Link or Message</h1>
+                <div id="body" >
+                    
                     <form id="form" onkeypress="return event.keyCode != 13;">
                         <p class="text-primary">Language: <input type="text" id="locale" name="locale" required="required" value="en" class="no-outline boxStyling" /></p>
                         <p class="text-primary">Title: <input type="text" id="title" name="title" required="required" class="no-outline boxStyling" /></p>
@@ -139,7 +142,41 @@
                     <p><input id="form-submit" type="button" value="submit" onclick="createOrUpdateItem()" class="btn-primary btn-lg active mt-3" /></p>
                     </div>
                 </div>
+                </div>
                 <!--end-->
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <!--Start-->
+                <div  class="container shadow rounded">
+                <h1 id="title" class="display-4">Create/Edit Category</h1>
+                <div id="body">
+                    <form id="form" onkeypress="return event.keyCode != 13;">
+                        <p class="text-primary">Category name: <input type="text" id="title" name="title" required="required" class="no-outline boxStyling" /></p>
+                        <p class="text-primary">Category language: <input type="text" id="locale" value="en" name="locale" required="required" class="no-outline boxStyling" /></p>
+                        <p id="ownedPar">Category is owned by you:
+                            <input type="checkbox" id="owned" name="owned"
+                                onclick="$('#ownedInfo').css('display', event.target.checked ? 'block' : 'none')" />
+                            (Others cannot post to a category owned by you, but owned categories receive
+                            less promotion and search engine hits than regular categories. If doubt, leave unchecked.)</p>
+                        <div id="ownedInfo" style="display: none">
+                            <p class="text-primary">Short (meta) description: <textarea id="shortDescription" name="shortDescription" class="no-outline boxStyling"></textarea></p>
+                            <p class="text-primary">Description: <textarea id="description" name="description" class="no-outline boxStyling"></textarea></p>
+                        </div>
+                    </form>
+                    <div id="multiVoterDiv">
+                        <h2 >Parent categories</h2>
+                        <p>You vote for parent categories with ETH, with the discount TODO.
+                            For your owned parent categories voting is free.
+                            Add your new category to at least one parent category to have more traffic.</p>
+                        <div id="multiVoter"></div>
+                    </div>
+                    <div class="text-center pb-3">
+                    <p><input type="button" value="Create/Edit" onclick="createCategory()"  class="btn-primary btn-lg active mt-3"/></p>
+                    </div>
+                </div>
+                </div>
+                <!--end-->
+                
             </div>
            
         </div>
