@@ -1,0 +1,34 @@
+body {
+}
+textarea {
+  resize: none;
+}
+.shortDes {
+  margin-top: 10px;
+  min-height: 100px;
+}
+.description{
+  
+   min-height: 150px;
+}
+.boxStyling {
+  max-height: 150px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  
+}
+input {
+  margin-top: 10px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-width: thin;
+  border-bottom-style: groove;
+ 
+}
+
+.no-outline:focus {
+  outline: none;
+}

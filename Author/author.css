@@ -1,0 +1,66 @@
+body{
+    font-family: 'Jura', sans-serif;
+}
+.navbar-nav {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    margin-left: auto;
+}
+.nav-item{
+    margin-left: 2rem;
+}
+.dashboard-nav{
+    display: flex;
+    height: auto;
+    padding: 0 1rem;
+    width: 100vw;
+    align-items: center;
+   
+}
+.author-icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+#body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    
+}
+input[type="button"]{
+    border: none;
+    background-color: rgb(100, 149, 237);
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+::-webkit-file-upload-button{
+    border: none;
+    background-color: rgb(100, 149, 237);
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+#links,
+#categories{
+    font-style: italic;
+    font-family: cursive;
+}
+table{
+    border: hidden;
+    width: 30vw;
+    margin-top: 1rem;
+    
+    
+}
+#body h3{
+    margin: 1.5rem 0;
+}
+
+

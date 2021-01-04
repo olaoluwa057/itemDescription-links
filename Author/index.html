@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="head">
+        <meta name="robots" content="noindex" />
+        <title>Author's Dashboard</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.9/web3.min.js"></script>
+        <script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
+        <script src="artifacts/SmartWeave.js"></script>
+        <script src="js/addresses2.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/author.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./author.css">
+        <style>
+            table { border-collapse: collapse; }
+            td, th { border: 1px solid gray }
+        </style>
+    </head>
+    <body>
+        <!-- Nav bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Zon Directory</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="../pricing/pricing.html">Pricing</a>
+                <a class="nav-item nav-link" href="#">NotDisabled</a>
+              </div>
+            </div>
+          </nav>
+          <!--end of nav-->
+        <div class="dashboard-nav">
+            <h3 id="title">Author's Dashboard</h3>
+            <img src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" class="author-icon" alt="" srcset="">
+        </div>
+        
+        <div id="body">
+            <p>Your AR wallet (until it is set all your AR royalties and donations will be sent to the owner of this site!):
+                <code id="arWallet"></code>
+                <input type="button" value="Set AR wallet" onclick="setARWallet()"/>
+                <input type="file" value="Set AR wallet from key file..." id="arKeyFile" onchange="setARWalletFromkeyFile(event)"/>
+            </p>
+            <h3>My files</h3>
+            <!--
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price in ETH</th>
+                        <th>Price in AR</th>
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tbody id="theTable"></tbody>
+            </table> -->
+            <h3>Links owned by me</h3>
+            <ul id="links"> <h5>You currently have no published link</h5></ul>
+            <h3>Categories owned by me</h3>
+            <p>You can publish for free (not counting Ethereum transaction costs) links, messages, downloads, etc.
+                in your categories.</p>
+            <ul id="categories"> <h5>You currently have no published link </h5></ul>
+        </div>
+
+        
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
